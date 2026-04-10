@@ -19,14 +19,14 @@
         <h2 class="categories__title">Escolha Rápida</h2>
 
         <div class="categories__list">
-          {% for produto in destaque: %}
+          {% for destaque in destaque: %}
           <div class="category-item">
             <img
-              src="{{produto.url_imagem}}"
-              alt="Lanche 6"
+              src="{{destaque.url_imagem}}"
+              alt="{{destaque.produtos}}"
               class="category-item__img"
             />
-            <a href="#lanche-6" class="button button--small">EU QUERO</a>
+            <a href="{{destaque.codigo}}" class="button button--small">EU QUERO</a>
           </div>
           {% endfor %}
         </div>
