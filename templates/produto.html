@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 
 {% block css_adicional %}
+
+
 <style>
   :root {
       --primary-color: #3d1d11;
@@ -162,7 +164,7 @@
     <section class="product__gallery">
       <div class="gallery__main-image">
         <button class="gallery__arrow gallery__arrow--left">&#10094;</button>
-        <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg" alt="Classic Dev" id="main-img">
+        <img src="{{prod.url_imagem}}" alt="Hamburgues" id="main-img">
         <button class="gallery__arrow gallery__arrow--right">&#10095;</button>
         <span class="product__wishlist">&#9825;</span>
       </div>
@@ -170,21 +172,21 @@
   
     <section class="product__details">
       <header class="product__header">
-        <h1 class="product__title">Classic Dev Burger 160g</h1>
+        <h1 class="product__title">{{prod.produtos}}</h1>
       </header>
   
       <div class="product__description">
-        <p><strong>Pão brioche selado na manteiga</strong>, carne suculenta de 160g e <strong>queijo cheddar derretido</strong>. Uma combinação clássica e equilibrada para um lanche cheio de sabor.</p>
+        <p>{{prod.descricao}}</p>
         <a href="#" class="product__more-details">VER MAIS DETALHES</a>
       </div>
   
       <hr class="divider">
   
       <div class="product__price-container">
-        <span class="price__old">R$ 32,90</span>
+        <span class="price__old">R$ {{prod.preco_ori}}</span>
         <div class="price__current">
           <span class="price__symbol">R$</span>
-          <span class="price__value">25,00</span>
+          <span class="price__value">{{prod.preco}}</span>
         </div>
       </div>
   

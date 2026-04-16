@@ -56,7 +56,9 @@
               </p>
               <div class="card__footer">
                 <span class="card__price">R$ {{ produto.preco }}</span>
-                <button class="button button--small">Comprar</button>
+                <a href="/produto/{{produto.codigo}}">
+                    <button style="border: none; border-radius: 25px; font-size: 1rem; padding: 5px 20px; background-color: orange;" >Comprar</button>
+                </a>
               </div>
             </div>
           </article>

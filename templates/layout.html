@@ -18,10 +18,10 @@
 
 <!-- Incluir os links para CSS (pode ter mais arquivos ou arquivos com nomes diferentes) -->
     
-    <link rel="stylesheet" href="static/src/css/reset.css" />
-    <link rel="stylesheet" href="static/src/css/variables.css" />
-    <link rel="stylesheet" href="static/src/css/main.css" />
-    <link rel="stylesheet" href="static/src/css/media.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'src/css/reset.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'src/css/variables.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'src/css/main.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'src/css/media.css') }}" />
     {% block css_adicional %}
     {% endblock %}
   </head>
@@ -48,6 +48,14 @@
             </li>
           </ul>
         </nav>
+
+        <a href="/cadastro">
+            <button>Cadastrar</button>
+        </a>
+
+        <a href="/login">
+            <button>Entrar</button>
+        </a>
 
         <div class="header__social">
           <a href="#" class="header__icon"

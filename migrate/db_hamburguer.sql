@@ -7,8 +7,10 @@ CREATE TABLE IF NOT EXISTS produto(
     produtos  VARCHAR(30),
     descricao VARCHAR(300),
     destaque BOOL,
-    preco FLOAT,
+    preco VARCHAR(5),
+    preco_ori VARCHAR(5),
     url_imagem VARCHAR(200),
     disponibilidade bool
 );
+
 
