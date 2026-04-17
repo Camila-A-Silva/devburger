@@ -1,90 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+{% extends "layout.html" %}
 
-    <style>
-        /* Importando uma fonte mais moderna */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
-    body {
-        background-color: #e0e5ec; /* Um cinza azulado mais suave */
-        font-family: 'Inter', sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; /* Ocupa a altura toda da tela para centralizar verticalmente */
-        margin: 0;
-    }
-
-    .conteiner {
-        background-color: #ffffff;
-        padding: 40px;
-        border-radius: 16px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 320px; /* Largura fixa para não esticar demais */
-    }
-
-    form {
-        display: flex;
-        flex-direction: column; /* Coloca um elemento abaixo do outro */
-    }
-
-    h2 {
-        margin-top: 0;
-        color: #333;
-        text-align: center;
-    }
-
-    p {
-        margin-bottom: 8px;
-        font-weight: 600;
-        color: #555;
-        font-size: 14px;
-    }
-
-    input {
-        padding: 12px;
-        margin-bottom: 20px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        outline: none;
-        transition: border-color 0.3s;
-    }
-
-    input:focus {
-        border-color: #4A90E2; /* Cor azul ao clicar para digitar */
-    }
-
-    .botao {
-        background-color: #4A90E2;
-        color: white;
-        padding: 12px;
-        border: none;
-        border-radius: 8px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
-    }
-
-    .botao:hover {
-        background-color: #357ABD;
-        transform: translateY(-2px); /* Efeito de levante ao passar o mouse */
-    }
-
-    .botao:active {
-        transform: translateY(0);
-    }
-        
-    </style>
-
-</head>
-<body>
+{% block css_adicional %}
+<link rel="stylesheet" href="{{ url_for('static', filename = 'src/css/cadastro.css')}}">
+{% endblock %}
+   
+{% block conteudo %}
     <div class="conteiner">
-       <form action="/cadastro" method="POST">
+       <form action="/cadastrar_usuario" method="POST">
+
+        <p>Nome</p>
+        <input id="nome" name="nome" type="text">
 
         <p>Usuário</p>
         <input id="usuario" name="usuario" type="text">
@@ -93,11 +18,11 @@
         <input id="senha" name="senha" type="password">
 
         <br>
-        <button class="botao" type="submit">CADASTRA</button>
+        <button class="botao" type="submit">CADASTRAR</button>
     </form> 
     </div>
+{% endblock %}
     
-
-    
+   
 </body>
 </html>

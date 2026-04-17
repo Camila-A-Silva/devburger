@@ -1,0 +1,82 @@
+ /* Fonte limpa e profissional */
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* Cinza claro neutro para o fundo */
+            background-color: #f0f2f5; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .conteiner {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            /* Sombra bem sutil */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 350px;
+            border: 1px solid #e1e4e8;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        p {
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #444;
+            font-weight: 600;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #fafafa;
+            transition: all 0.2s;
+        }
+
+        /* Destaque discreto ao clicar */
+        input:focus {
+            outline: none;
+            border-color: #007bff;
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+
+        .botao {
+            background-color: #333; /* Botão escuro para contraste */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s;
+            margin-top: 5px;
+        }
+
+        .botao:hover {
+            background-color: #555;
+        }
+
+        .botao:active {
+            background-color: #222;
+        }

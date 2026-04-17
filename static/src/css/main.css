@@ -290,3 +290,47 @@
     color: var(--text-light);
     text-align: center;
 }
+
+
+/* Container dos botões de autenticação */
+.header__auth {
+    display: flex;
+    gap: 12px;
+    margin-left: 10px;
+}
+
+/* Estilo base dos botões */
+.btn {
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* Botão de Cadastrar (Destaque) */
+.btn--primary {
+    background-color: #2563eb;
+    color: white;
+}
+
+.btn--primary:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Botão de Entrar (Discreto) */
+.btn--secondary {
+    background-color: transparent;
+    color: #969da5;
+    border-color: #475569;
+}
+
+.btn--secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #54585c;
+    border-color: #475569;
+}
