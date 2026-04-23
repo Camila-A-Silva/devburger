@@ -16,6 +16,10 @@ def pg_produto(codigo):
     prod = recup_produto(codigo)
     return render_template("produto.html", prod = prod)
 
+@app.route("/cadastro")
+def pg_cadastro():
+    return render_template("cadastro.html")
+
 @app.route("/cadastrar_usuario", methods=["POST"])
 def cadastro():
     usuario = request.form.get("usuario")
@@ -27,10 +31,17 @@ def cadastro():
 
     return redirect("/")
 
-@app.route("/cadastro_login")
-def cadastro_login():
-    return render_template("cadastro.html")
 
+@app.route("/logar/usuario", methods=["POST"])
+def logar_usuario():
+    usuario = request.form.get("usuario")
+    senha = request.form.get("senha")
+    resultado = Usuario.logar(usuario, senha)
+
+    if not resultado:
+        session ["usuario_logado"] = resultado
+
+    return redirect("/")
 
 
 

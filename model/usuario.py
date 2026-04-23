@@ -15,11 +15,11 @@ class Usuario:
         conexao.commit()
         conexao.close()
 
-    def logar(self):
+    def logar(usuario:str, senha:str):
         conexao, cursor = conectar()
         cursor.execute("""
-                        SELECT * FROM cadastro (usuario, senha, nome)
-                       VALUES(%s, %s, %s);
-                            """, [self.usuario, self.senha, self.nome])
-        conexao.commit()
+                        SELECT * FROM cadastro WHERE usuario = %s AND senha = %s;
+                            """, [usuario, senha])
+        resultado = cursor.fetchone()
         conexao.close()
+        return resultado

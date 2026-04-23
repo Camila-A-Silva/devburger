@@ -14,3 +14,8 @@ CREATE TABLE IF NOT EXISTS produto(
 );
 
 
+CREATE TABLE IF NOT EXISTS cadastro(
+	usuario VARCHAR(10) PRIMARY KEY,
+    nome VARCHAR(20),
+    senha  VARCHAR(200)
+);

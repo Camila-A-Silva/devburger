@@ -2,7 +2,7 @@ from database.conexao import conectar
 
 def recuperar_produtos():
     conexao, cursor = conectar()
-    cursor.execute("SELECT codigo, produtos, descricao, destaque, preco, url_imagem, disponibilidade from produto")
+    cursor.execute("SELECT codigo, produtos, descricao, destaque, preco_ori, preco, url_imagem, disponibilidade from produto")
 
     produto = cursor.fetchall()
     conexao.close()
@@ -19,7 +19,7 @@ def recuperar_produtos_destaque():
 
 def recup_produto(codigo:int):
     conexao, cursor = conectar()
-    cursor.execute("SELECT codigo, produtos, descricao, destaque, preco, url_imagem, disponibilidade from produto WHERE codigo = %s",[codigo])
+    cursor.execute("SELECT codigo, produtos, descricao, destaque, preco_ori, preco, url_imagem, disponibilidade from produto WHERE codigo = %s",[codigo])
 
     produto = cursor.fetchone()
     conexao.close()

@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 
 {% block conteudo %}  
+
+
 <!-- Banner -->
     <section class="banner">
       <div class="banner__content">
@@ -54,8 +56,9 @@
               <p class="card__description">
                 {{ produto.descricao }}
               </p>
-              <div class="card__footer">
+              <div class="card__footer" style="gap: 10px;">
                 <span class="card__price">R$ {{ produto.preco }}</span>
+                <button style="border: none; border-radius: 25px; font-size: 1rem; padding: 1px 10px; background-color: green; color: white;"><span class="material-symbols-outlined">shopping_cart</span></button>
                 <a href="/produto/{{produto.codigo}}">
                     <button style="border: none; border-radius: 25px; font-size: 1rem; padding: 5px 20px; background-color: orange;" >Comprar</button>
                 </a>
