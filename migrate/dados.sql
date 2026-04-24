@@ -52,3 +52,16 @@ VALUES
 "31,50",
 "https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=600",
 "1");
+
+
+INSERT INTO `db_hamburguer`.`cadastro` (`usuario`, `senha`, `nome`) VALUES ('Camss', '123', 'Camila');
+INSERT INTO `db_hamburguer`.`cadastro` (`usuario`, `senha`, `nome`) VALUES ('Lena', '1234', 'Helena');
+
+INSERT INTO `db_hamburguer`.`carrinho` (`usuario`, `finalizado`) VALUES ('Camss', '0');
+
+INSERT INTO `db_hamburguer`.`item_carrinho` (`cod_carrinho`, `cod_produto`, `quantidade`) VALUES ('1','2', '2');
+INSERT INTO `db_hamburguer`.`item_carrinho` (`cod_carrinho`, `cod_produto`, `quantidade`) VALUES ('1','5', '1');
+INSERT INTO `db_hamburguer`.`item_carrinho` (`cod_carrinho`, `cod_produto`, `quantidade`) VALUES ('1','4', '1');
+
+
+

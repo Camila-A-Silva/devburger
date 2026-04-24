@@ -32,7 +32,7 @@ def cadastro():
     return redirect("/")
 
 
-@app.route("/logar/usuario", methods=["POST"])
+@app.route("/login", methods=["POST"])
 def logar_usuario():
     usuario = request.form.get("usuario")
     senha = request.form.get("senha")

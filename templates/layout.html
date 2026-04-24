@@ -67,6 +67,8 @@
           <span class="material-symbols-outlined">shopping_cart</span>
         </button>
 
+        <a href="/cadastro", methods="POST", style="gap: 10px;"><button class="btn_login">login</button></a>
+
       </div>
     </header>
 
@@ -81,36 +83,7 @@
       </p>
     </footer>
 
-    <aside class="cart" id="cart">
-
-      <div class="cart__header">
-        <strong style="color: black;">Seu Carrinho</strong>
-        <span onclick="toggleCart()" style="cursor:pointer; color: black;">✖</span>
-      </div>
-
-      <div class="cart__items" id="cart-items">
-        
-      </div>
-
-      <div class="cart__footer">
-        <div class="cart__total" style="color: black;">
-          <strong style="color: black;" id="cart-total">Total:</strong>R$ 37,00
-        </div>
-
-        <button class="cart__btn">
-          Finalizar Pedido
-        </button>
-      </div>
-
-    </aside>
-
-    <script>
-      function toggleCart() {
-          const cart = document.getElementById("cart");
-          cart.classList.toggle("active");
-      }
-    </script>
-    <script src="static/js/carrinho.js"></script>
+     
 
   </body>
 </html>
