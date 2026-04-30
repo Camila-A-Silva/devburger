@@ -1,8 +1,10 @@
-from flask import Flask, render_template,redirect, request, session, flash
+from flask import Flask, render_template,redirect, request, session, flash, jsonify
 from model.produto import recuperar_produtos, recuperar_produtos_destaque, recup_produto
 from model.usuario import Usuario
+from model.carrinho import recuperar_carrinho
 
 app = Flask(__name__)
+app.secret_key = "azul"
 
 @app.route("/")
 def pg_inicial():
@@ -29,19 +31,34 @@ def cadastro():
     novo_usu = Usuario(usuario,senha,nome)
     novo_usu.cadastrar()
 
-    return redirect("/")
+    return redirect("/login")
+
+@app.route("/login")
+def pg_login():
+    return render_template("login.html")
 
 
 @app.route("/login", methods=["POST"])
 def logar_usuario():
     usuario = request.form.get("usuario")
     senha = request.form.get("senha")
-    resultado = Usuario.logar(usuario, senha)
 
-    if not resultado:
-        session ["usuario_logado"] = resultado
+    usuario_log = Usuario.logar(usuario, senha)
+
+    if usuario_log:
+        session ["usuario_logado"] = usuario_log 
 
     return redirect("/")
+
+@app.route("/api/get/carrinho", methods=["GET"])
+def api_get_carrinho():
+    if "usuario_logado" in session:
+        carrinho = recuperar_carrinho(session["usuario_logado"]["usuario"])
+        return jsonify(carrinho), 200
+    else:
+        return jsonify({"message":"Usuário não logado"}), 401
+
+
 
 
 

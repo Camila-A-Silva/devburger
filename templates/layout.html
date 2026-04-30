@@ -63,11 +63,15 @@
           </ul>
         </nav>
 
-        <button class="header__cart-btn" onclick="toggleCart()">
-          <span class="material-symbols-outlined">shopping_cart</span>
-        </button>
+        <p style="color: white;">{{session.usuario_logado.nome}}</p>
 
-        <a href="/cadastro", methods="POST", style="gap: 10px;"><button class="btn_login">login</button></a>
+        <div>
+          <a href="/cadastro", style="gap: 10px;"><button class="btn_login">CADASTRAR</button></a>
+          <a href="/login", style="gap: 10px;"><button class="btn_login">LOGIN</button></a>
+        </div>
+        
+
+      
 
       </div>
     </header>
