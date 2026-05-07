@@ -15,7 +15,7 @@
 
         for (let dado of dados){
             
-            total = total + dado.preco
+            total = total + parseFloat(dado.preco)
 
             let linha = `<div class="cart__item" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
       
@@ -30,9 +30,35 @@
 
             carrinho.innerHTML += linha
         }
-        document.querySelector(".cart__total").textContent = "Total: R$ " + total
+        document.querySelector(".cart__total").textContent = "Total: R$ " + total.toFixed(2)
     };
 
 };
 
 mostrarCarrinho()
+
+
+async function inserirItemCarrinho(cod_produto, quantidade){
+    const resposta = await fetch("/api/post/item_carrinho", 
+                                    {
+                                        method:"POST",
+                                        headers:{
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringif(
+                                                {   "cod_produto":cod_produto,
+                                                    "quantidade":quantidade }
+                                            )
+                                        
+                                    }
+                                )
+    
+    if (!resposta.ok)
+        {
+            alert("Erro ao inserir item!")
+        }      
+        mostrarCarrinho();                     
+
+
+
+}
