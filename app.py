@@ -1,5 +1,5 @@
 from flask import Flask, render_template,redirect, request, session, flash, jsonify
-from model.produto import recuperar_produtos, recuperar_produtos_destaque, recup_produto
+from model.produto import recuperar_produtos, recuperar_produtos_destaque, recup_produto, deletar
 from model.usuario import Usuario
 from model.carrinho import recuperar_carrinho, inserir_item
 
@@ -72,6 +72,11 @@ def api_post_item_carrinho():
 
     else:
         return redirect("/login")
+    
+@app.route("/produto/delete/<codigo>")
+def pg_deletar_produto(codigo):
+    deletar(codigo)
+    return redirect("/")
 
 
 

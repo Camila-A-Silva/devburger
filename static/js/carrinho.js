@@ -38,14 +38,14 @@
 mostrarCarrinho()
 
 
-async function inserirItemCarrinho(cod_produto, quantidade){
+async function inserirItemCarrinho(cod_produto, quantidade=1){
     const resposta = await fetch("/api/post/item_carrinho", 
                                     {
                                         method:"POST",
                                         headers:{
                                             "Content-Type": "application/json"
                                         },
-                                        body: JSON.stringif(
+                                        body: JSON.stringify(
                                                 {   "cod_produto":cod_produto,
                                                     "quantidade":quantidade }
                                             )
@@ -56,9 +56,32 @@ async function inserirItemCarrinho(cod_produto, quantidade){
     if (!resposta.ok)
         {
             alert("Erro ao inserir item!")
-        }      
-        mostrarCarrinho();                     
+        }
+
+        mostrarCarrinho();  
+
+}
 
 
+async function deletarItemCarrinho(cod_produto){
+    const resposta = await fetch("/api/post/deletar_item_carrinho", 
+                                    {
+                                        method:"POST",
+                                        headers:{
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringify(
+                                                {   "cod_produto":cod_produto}
+                                            )
+                                        
+                                    }
+                                )
+    
+    if (!resposta.ok)
+        {
+            alert("Erro ao inserir item!")
+        }
+
+        mostrarCarrinho();  
 
 }

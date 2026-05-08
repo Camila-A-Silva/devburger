@@ -24,3 +24,13 @@ def recup_produto(codigo:int):
     produto = cursor.fetchone()
     conexao.close()
     return produto
+
+def deletar(codigo:int):
+
+    conexao, cursor = conectar()
+
+    cursor.execute("DELETE FROM item_carrinho WHERE cod_carrinho = %s",[codigo])
+    
+    conexao.commit()
+
+    conexao.close()
