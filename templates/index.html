@@ -1,118 +1,226 @@
 {% extends "layout.html" %}
 
-{% block conteudo %}  
+{% block conteudo %}
 
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
+  defer></script>
 
 
 <!-- Banner -->
-    <section class="banner">
-      <div class="banner__content">
-        <h1 class="banner__title">
-          Code & <span class="banner__title--highlight">Flavor</span>
-        </h1>
-        <p class="banner__subtitle">
-          O melhor hambúrguer da cidade compilado para você.
-        </p>
-      </div>
-    </section>
+<div class="container mt-5">
+  <div class="row justify-content-center">
 
-<!-- Escolha Rápida  -->
-    <section class="categories">
-      <div class="categories__container">
-        <h2 class="categories__title">Escolha Rápida</h2>
+    <div class="col-md-6">
 
-        <div class="categories__list">
-          {% for destaque in destaque %}
-          <div class="category-item">
-            <img
-              src="{{destaque.url_imagem}}"
-              alt="{{destaque.produtos}}"
-              class="category-item__img"
-            />
-            <button onclick="inserirItemCarrinho({{destaque.codigo}})" class="button button--small">EU QUERO</button>
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <img src="https://images.pexels.com/photos/29942738/pexels-photo-29942738.jpeg"
+              class="d-block w-100 vh-50 object-fit-cover" alt="...">
           </div>
-          
-          {% endfor %}
-        </div>
-      </div>
-    </section>
 
-<!-- Produtos do Menu -->
-    <section class="products" id="menu">
-      <div class="products__container">
-        <h2 class="products__title">Nossos Destaques</h2>
+          <div class="carousel-item">
+            <img
+              src="https://www.receitasnestle.com.br/sites/default/files/styles/crop_article_banner_desktop_nes/public/2025-08/acai-desktop.jpeg?itok=4GAj8m6A"
+              class="d-block w-100 vh-50 object-fit-cover" alt="...">
+          </div>
 
+          <div class="carousel-item">
+            <img
+              src="https://static.wixstatic.com/media/003c51_c96ed2fa34b64ec09e09262e33182fef~mv2.jpg/v1/fill/w_568,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/003c51_c96ed2fa34b64ec09e09262e33182fef~mv2.jpg"
+              class="d-block w-100 vh-50 object-fit-cover" alt="...">
+          </div>
 
-        <div class="products__grid">
-          {% for produto in produto: %}
-          <article class="card" id="lanche-1">
-            <div class="card__image-wrapper">
-              <img
-                src= "{{ produto.url_imagem }}"
-                alt="Classic Dev"
-                class="card__image"
-              />
-            </div>
-            <div class="card__body">
-              <h3 class="card__title"> {{ produto.produtos }} </h3>
-              <p class="card__description">
-                {{ produto.descricao }}
-              </p>
-              <div class="card__footer" style="gap: 10px;">
-                <span class="card__price">R$ {{ produto.preco }}</span>
-                <button onclick="inserirItemCarrinho({{produto.codigo}})", style="border: none; border-radius: 25px; font-size: 1rem; padding: 1px 10px; background-color: green; color: white;"><span class="material-symbols-outlined">shopping_cart</span></button>
-                <a href="/produto/{{produto.codigo}}">
-                    <button style="border: none; border-radius: 25px; font-size: 1rem; padding: 5px 20px; background-color: orange;" >Comprar</button>
-                </a>
-              </div>
-            </div>
-          </article>
-          {% endfor %}
         </div>
 
-        <div style="text-align: center; margin-top: 40px">
-          <a href="#menu" class="button button--primary"
-            >Voltar para Destaques</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <button class="header__cart-btn" onclick="toggleCart()">
-      <span class="material-symbols-outlined">shopping_cart</span>
-    </button>
-
-    <aside class="cart" id="cart">
-
-      <div class="cart__header">
-        <strong style="color: black;">Seu Carrinho</strong>
-        <span onclick="toggleCart()" style="cursor:pointer; color: black;">✖</span>
-      </div>
-
-      <div class="cart__items" id="cart-items">
-        
-        
-      </div>
-
-      <div class="cart__footer">
-        <div class="cart__total" style="color: black;">
-          <strong style="color: black;" id="cart-total">Total:</strong>R$ 0,00
-        </div>
-
-        <button class="cart__btn">
-          Finalizar Pedido
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
         </button>
       </div>
 
-    </aside>
+    </div>
+  </div>
+</div>
 
-    <script>
-      function toggleCart() {
-          const cart = document.getElementById("cart");
-          cart.classList.toggle("active");
-      }
-    </script>
-    <script src="static/js/carrinho.js"></script>
 
-{% endblock %}
+
+
+<!-- Produtos do Menu -->
+<section class="hist" id="menu">
+  <div class="hist__container">
+    <h2 class="title">História do Açaí</h2>
+
+    <div class="origem">
+      <h1>A Origem e a Lenda de Iaçá</h1>
+      <p>O açaí é o fruto da palmeira Euterpe oleracea, nativa da região amazônica. Segundo a tradição oral dos povos
+        originários, o nome vem de uma lenda sobre uma época de escassez de alimentos em uma tribo.
+
+        O cacique local ordenou o sacrifício de todas as crianças para controlar a fome, incluindo o neto de sua filha,
+        Iaçá. Desolada, Iaçá encontrou uma palmeira carregada de frutos escuros. Ao ser encontrada morta abraçada ao
+        tronco, seus olhos apontavam para os frutos. O cacique percebeu que ali estava o alimento; batizou o fruto de
+        Açaí (Iaçá invertido) e encerrou os sacrifícios.</p>
+    </div>
+    <div class="base">
+      <h1>O Alimento Base da Amazônia</h1>
+      <p>Por séculos, o açaí foi (e continua sendo) a base da dieta das populações ribeirinhas e indígenas no Norte do
+        Brasil. Diferente do consumo no resto do país, na Amazônia ele é consumido:
+        Puro e fresco: Batido na hora com água.
+        Acompanhamento salgado: Servido com peixe assado, camarão e farinha de mandioca ou d’água.
+        Sem açúcar: O sabor original é terroso e neutro, longe do doce industrializado.</p>
+    </div>
+
+
+    <div class="difentes">
+      <h1>Diferente forma que o Açaí é consumido</h1>
+    </div>
+
+
+    <div class="container">
+      <main class="product-container">
+        <section class="product__gallery">
+          <div class="gallery__main-image">
+            <button class="gallery__arrow gallery__arrow--left">&#10094;</button>
+            <img src="..." alt="Hamburgues" id="main-img">
+            <button class="gallery__arrow gallery__arrow--right">&#10095;</button>
+            <span class="product__wishlist">&#9825;</span>
+          </div>
+        </section>
+
+        <section class="product__details">
+          <header class="product__header">
+            <h1 class="product__title"> Região Norte (Pará, Amapá, Amazonas) - "O Açaí Raiz" </h1>
+          </header>
+
+          <div class="product__description">
+            <p>No Norte, especialmente no Pará (que produz cerca de 90% do açaí), o açaí é consumido in natura, sem
+              açúcar ou xarope de guaraná, servido gelado ou em temperatura ambiente. </p>
+          </div>
+
+          <hr class="divider">
+
+          <div class="product__price-container">
+            <p>Com Peixe Frito/Assado: O açaí é considerado uma refeição salgada. A tradição é comer o açaí puro (batido
+              apenas com água) acompanhado de peixe frito, como peixe filhote ou dourado, e farinha de mandioca.
+              Com Camarão ou Charque: Além do peixe, o açaí é acompanhado de camarão salgado ou carne seca.
+              Açaí com Farinha: É comum comer com farinha de mandioca grossa (farinha d'água) ou farinha de tapioca.
+              Açaí com Açúcar (Opcional): Alguns paraenses adicionam açúcar, mas nunca com as frutas ou caldas doces do
+              sul.
+              Açaí no Amapá: Semelhante ao Pará, mas muitas vezes servido mais grosso, acompanhado de peixe e farinha de
+              tapioca. </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="container">
+      <main class="product-container">
+        <section class="product__gallery">
+          <div class="gallery__main-image">
+            <button class="gallery__arrow gallery__arrow--left">&#10094;</button>
+            <img src="..." alt="Hamburgues" id="main-img">
+            <button class="gallery__arrow gallery__arrow--right">&#10095;</button>
+            <span class="product__wishlist">&#9825;</span>
+          </div>
+        </section>
+
+
+        <section class="product__details">
+          <header class="product__header">
+            <h1 class="product__title">Região Sudeste e Sul (SP, RJ, RS, etc.) - "O Açaí Doce" </h1>
+          </header>
+
+          <div class="product__description">
+            <p>Nessas regiões, o açaí foi popularizado como uma sobremesa ou "lanche energético" pré/pós-treino. </p>
+          </div>
+
+          <hr class="divider">
+
+          <div class="product__price-container">
+            <p>Açaí na Tigela: O creme de açaí é batido com xarope de guaraná, tornando-o bem doce.
+              Acompanhamentos Doces: É servido com banana, granola, morango, leite condensado, leite em pó (Ninho),
+              paçoca e Nutella.
+              Versão Frozen: Muito comum em forma de picolé ou sorvete cremoso em copos. </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="container">
+      <main class="product-container">
+        <section class="product__gallery">
+          <div class="gallery__main-image">
+            <button class="gallery__arrow gallery__arrow--left">&#10094;</button>
+            <img src="..." alt="Hamburgues" id="main-img">
+            <button class="gallery__arrow gallery__arrow--right">&#10095;</button>
+            <span class="product__wishlist">&#9825;</span>
+          </div>
+        </section>
+
+        <section class="product__details">
+          <header class="product__header">
+            <h1 class="product__title"> Região Nordeste </h1>
+          </header>
+
+          <div class="product__description">
+            <p>O consumo é misto, variando entre a tradição nortista e a sobremesa doce. </p>
+          </div>
+
+          <hr class="divider">
+
+          <div class="product__price-container">
+            <p>Comida: Em alguns estados, segue a tradição de ser um acompanhamento de peixe ou carne.
+              Doces: Em áreas urbanas, o consumo de açaí como sobremesa com frutas e granola também é muito forte. </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="container">
+      <main class="product-container">
+        <section class="product__gallery">
+          <div class="gallery__main-image">
+            <button class="gallery__arrow gallery__arrow--left">&#10094;</button>
+            <img src="..." alt="Hamburgues" id="main-img">
+            <button class="gallery__arrow gallery__arrow--right">&#10095;</button>
+            <span class="product__wishlist">&#9825;</span>
+          </div>
+        </section>
+
+        <section class="product__details">
+          <header class="product__header">
+            <h1 class="product__title"> Região Centro-Oeste </h1>
+          </header>
+
+          <div class="product__description">
+            <p>O fruto é bastante consumido na forma de picolé e sorvete, muito devido à valorização de frutas típicas e climas quentes.  </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+
+
+
+    {% endblock %}

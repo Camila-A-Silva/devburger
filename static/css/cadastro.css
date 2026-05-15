@@ -1,0 +1,97 @@
+/* Paleta de Cores Moderna */
+:root {
+    --acai-deep: #2c0533;
+    --acai-main: #5e1b6b;
+    --acai-vibrant: #8e24aa;
+    --acai-accent: #4caf50; /* Verde folha para contraste */
+    --soft-bg: #f8f5f9;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--soft-bg);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- FIXANDO O TAMANHO DO CARROSSEL --- */
+#acaiCarousel {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    height: 500px; /* Altura fixa para desktop */
+}
+
+.carousel-item {
+    height: 100%;
+}
+
+.carousel-item img {
+    height: 100% !important; /* Força a altura a ocupar o container pai */
+    width: 100%;
+    object-fit: cover; /* Faz a imagem cobrir a área sem distorcer */
+    object-position: center;
+}
+
+/* Estilização Geral e Cores */
+.purple-text {
+    color: var(--acai-deep);
+    background: linear-gradient(45deg, var(--acai-deep), var(--acai-vibrant));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-purple {
+    background-color: var(--acai-main) !important;
+}
+
+.border-purple {
+    border-color: var(--acai-accent) !important; /* Mudei para verde para dar um charme */
+}
+
+/* Estilo da Seção de História */
+section.bg-white {
+    border-bottom: 4px solid var(--acai-vibrant);
+}
+
+/* Efeito nos Cards Regionais */
+.regional-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 15px;
+    overflow: hidden;
+    background: var(--white);
+    border: none !important;
+    border-top: 6px solid var(--acai-vibrant) !important;
+}
+
+.regional-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(94, 27, 107, 0.15) !important;
+}
+
+.badge.bg-purple {
+    padding: 8px 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, var(--acai-main), var(--acai-vibrant)) !important;
+}
+
+/* Botões do Carrossel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    padding: 20px;
+    background-size: 50%;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 768px) {
+    .carousel-inner {
+        height: 300px; /* Altura menor para celulares */
+    }
+}
